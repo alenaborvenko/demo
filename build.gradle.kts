@@ -1,10 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.4.9-SNAPSHOT"
-	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.4.32"
-	kotlin("plugin.spring") version "1.4.32"
 }
 
 group = "com.simple.spring"
@@ -13,16 +10,14 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
-	maven { url = uri("https://repo.spring.io/milestone") }
-	maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.reflections:reflections:0.9.12")
-
+	implementation("javax.annotation:javax.annotation-api:1.3.2")
+	compileOnly("org.projectlombok:lombok:1.18.20")
 }
 
 tasks.withType<KotlinCompile> {
